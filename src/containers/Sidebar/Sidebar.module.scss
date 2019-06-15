@@ -1,0 +1,66 @@
+@import '../../styles/variables';
+
+.active {
+  color: red,
+}
+
+.logo {
+  width: 100%;
+  text-align: right;
+  svg {
+    width: 100px;
+    fill: rgba(#fff, 0.8);
+  }
+}
+
+.sidebar {
+  height: 100%;
+  width: $menuWidth;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: $red;
+  overflow-x: hidden;
+  padding: 60px;
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    cursor: pointer;
+    position: relative;
+    margin: 10px 0 20px;
+    text-transform: uppercase;
+    text-align: right;
+    text-decoration: none;
+    letter-spacing: 0.4em;
+    color: rgba(#FFF, 0.35);
+    display: block;
+    padding: 20px 0;
+    font-size: 12px;
+    transition: all 0.4s;
+    &:hover {
+      color: rgba(#FFF, 0.8);
+    }
+    &.active {
+      font-weight: 700;
+      color: rgba(#FFF, 0.9);
+    }
+    &:not(.active)::after {
+      opacity: 0.1;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      opacity: 0.3;
+      background: #fff;
+      left: 0;
+      bottom: 0;
+    }
+  }
+}

@@ -2,10 +2,12 @@ import { call, put, takeLatest } from 'redux-saga/effects'
 import {
   fetchCategoriesSuccess,
   fetchCategoriesError,
+  setActiveCategory,
   actions
 } from 'redux/ducks/categories';
 import {
-  fetchCats
+  fetchCats,
+  clearCats,
 } from 'redux/ducks/cats';
 import { fecthCategories } from 'api';
 
@@ -20,8 +22,19 @@ function* fetchCategoriesAsync({ payload }) {
   }
 }
 
+function* changeCategory({ payload }) {
+  try {
+    yield put(setActiveCategory(payload));
+    yield put(clearCats());
+    yield put(fetchCats(payload.id))
+  } catch (e) {
+    yield put(fetchCategoriesError(e));
+  }
+}
+
 function* categoriesSaga() {
   yield takeLatest(actions.FETCH_CATEGORIES, fetchCategoriesAsync);
+  yield takeLatest(actions.CHANGE_CATEGORY, changeCategory);
 }
 
 export default categoriesSaga;;

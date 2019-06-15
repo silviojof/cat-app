@@ -3,7 +3,7 @@ export const actions = {
   FETCH_CATEGORIES_SUCCESS: 'FETCH_CATEGORIES_SUCCESS',
   FETCH_CATEGORIES_ERROR: 'FETCH_CATEGORIES_ERROR',
   SET_ACTIVE_CATEGORY: 'SET_ACTIVE_CATEGORY',
-  CLEAR_CATEGORIES: 'CLEAR_DETAIL',
+  CHANGE_CATEGORY: 'CHANGE_CATEGORY'
 };
 const initialState = {
   isLoadingCategories: false,
@@ -29,13 +29,14 @@ export const fetchCategoriesError = ({ payload }) => ({
   payload
 });
 
-export const setActiveCategory = ({ payload }) => ({
+export const setActiveCategory = payload => ({
   type: actions.SET_ACTIVE_CATEGORY,
   payload
 });
 
-export const clearDetail = () => ({
-  type: actions.CLEAR_CATEGORIES
+export const changeCategory = payload => ({
+  type: actions.CHANGE_CATEGORY,
+  payload
 });
 
 const categoriesReducer = (state = initialState, action) => {
@@ -60,13 +61,6 @@ const categoriesReducer = (state = initialState, action) => {
       return {
         ...state,
         active: action.payload,
-      };
-    }
-    case actions.CLEAR_CATEGORIES: {
-      return {
-        ...state,
-        isLoadingCategories: false,
-        categories: null,
       };
     }
     default: {

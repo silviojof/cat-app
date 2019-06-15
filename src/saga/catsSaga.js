@@ -6,7 +6,7 @@ import {
 } from 'redux/ducks/cats';
 import { fetchCats } from 'api';
 
-function* fetchCatsAsync({payload}) {
+function* fetchCatsAsync({ payload }) {
   try {
     const result = yield call(fetchCats, payload);
     yield put(fetchCatsSuccess(result));

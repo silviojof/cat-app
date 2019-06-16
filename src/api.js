@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-axios.defaults.headers.common['x-api-key'] = 'a1ed7cf3-22c3-42aa-9e47-766b28c93fac';
 const BASE_URL = 'https://api.thecatapi.com/v1/';
+axios.defaults.headers.common['x-api-key'] = process.env.REACT_APP_API_KEY;
 
 export const fetchCats = async (id) => {
   let response = await axios.get(`${BASE_URL}images/search?limit=10&category_ids=${id}`);

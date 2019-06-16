@@ -47,17 +47,17 @@
     text-align: right;
     text-decoration: none;
     letter-spacing: 0.4em;
-    color: rgba(#FFF, 0.35);
+    color: rgba($white, 0.35);
     display: block;
     padding: 20px 0;
     font-size: 12px;
     transition: all 0.4s;
     &:hover {
-      color: rgba(#FFF, 0.8);
+      color: rgba($white, 0.8);
     }
     &.active {
       font-weight: 700;
-      color: rgba(#FFF, 0.9);
+      color: rgba($white, 0.9);
     }
     &:not(.active)::after {
       opacity: 0.1;
@@ -68,7 +68,7 @@
       width: 100%;
       height: 1px;
       opacity: 0.3;
-      background: #fff;
+      background: $white;
       left: 0;
       bottom: 0;
     }

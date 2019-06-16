@@ -24,6 +24,7 @@ const Sidebar =  ({ fetchCategories, categories, changeCategory,
         {
           categories.map(el => (
             <li
+              data-testid="category-item"
               key={el.id}
               className={el.id === active.id ? styles.active : ''}
               onClick={() => changeCategory(el)}
@@ -36,6 +37,26 @@ const Sidebar =  ({ fetchCategories, categories, changeCategory,
       </nav>
     </aside>
   );
+};
+
+Sidebar.propTypes = {
+  active: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+  }),
+  categories: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+  })).isRequired,
+  changeCategory: PropTypes.func,
+  fetchCategories: PropTypes.func,
+  isLoadingCategories: PropTypes.bool,
+};
+
+Sidebar.defaultProps = {
+  changeCategory: () => {},
+  fetchCategories: () => {},
+  isLoadingCategories: false,
 }
 
 const mapStateToProps = ({ categories }) => {

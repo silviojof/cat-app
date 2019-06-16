@@ -1,36 +1,10 @@
 $red: #bf3737;
-$black: #333333;
-$darkGrey: #666666;
-$mediumGrey: #999999;
 $lightGrey: #eeeeee;
 $white: #fff;
-$blue: #3483fa;
 
 $spacing1: 16px;
 $spacing2: 32px;
 
-$lightShadow: 0 1px 1px 0 rgba(0,0,0,.2);
-
 $radius: 3px;
 
 $menuWidth: 320px;
-
-%container {
-    max-width: 1024px;
-    margin: 0 auto;
-}
-
-%paper {
-    padding: $spacing1;
-    background-color: $white;
-    border-radius: $radius;
-    margin-bottom: $spacing2;
-}
-
-%loader {
-    width: 100%;
-    height: calc(100vh - 40px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}

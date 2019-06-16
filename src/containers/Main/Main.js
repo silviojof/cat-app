@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchCats } from 'redux/ducks/cats';
@@ -8,7 +8,6 @@ import Masonry from './Masonry';
 import styles from './Main.module.scss';
 
 const Main =  ({ fetchCats, cats, isLoadingCats, active, error }) => {
-  // if (isLoadingCats) return <p>loading</p>;
   return (
     <section className={styles.main}>
       <Masonry breakPoints={[350, 500, 750]}>
@@ -30,6 +29,26 @@ const Main =  ({ fetchCats, cats, isLoadingCats, active, error }) => {
       </button>
     </section>
   );
+}
+
+Main.propTypes = {
+  active: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+  }),
+  cats: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    url: PropTypes.string,
+  })).isRequired,
+  error: PropTypes.bool,
+  fetchCats: PropTypes.func.isRequired,
+  isLoadingCats: PropTypes.bool,
+};
+
+Main.defaultProps = {
+  active: null,
+  error: false,
+  isLoadingCats: false,
 }
 
 const mapStateToProps = ({ cats, categories }) => {

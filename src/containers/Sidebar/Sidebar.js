@@ -4,13 +4,16 @@ import { connect } from 'react-redux';
 import { fetchCategories, changeCategory } from 'redux/ducks/categories';
 import { ReactComponent as Cat } from 'assets/images/cat.svg';
 import styles from './Sidebar.module.scss';
+import Spinner from 'components/Spinner';
 
 const Sidebar =  ({ fetchCategories, categories, changeCategory,
   isLoadingCategories, active }) => {
   useEffect(() => {
     fetchCategories();
   }, [fetchCategories]);
-  if (isLoadingCategories || !active) return <p>loading</p>;
+  if (isLoadingCategories || !active) {
+    return <div className={styles.loading}><Spinner /></div>;
+  }
   return (
     <aside className={styles.sidebar}>
       <div className={styles.logo}>

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchCats } from 'redux/ducks/cats';
+import Spinner from 'components/Spinner';
 import Tile from './Tile';
 import Masonry from './Masonry';
 import styles from './Main.module.scss';
@@ -14,10 +15,19 @@ const Main =  ({ fetchCats, cats, isLoadingCats, active, error }) => {
         {cats.map(image => {
           return (
             <Tile key={image.id} src={image.url} />
-          )
-        })}
+            )
+          })}
 			</Masonry>
-      <button onClick={() => fetchCats(active.id)}>Load More</button>
+      <button
+        onClick={() => fetchCats(active.id)}
+        className={styles.button}
+      >
+        {
+          isLoadingCats &&
+          <Spinner />
+        }
+        <span>Load More</span>
+      </button>
     </section>
   );
 }

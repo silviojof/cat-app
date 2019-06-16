@@ -7,7 +7,6 @@ const Masonry = ({ breakPoints, children }) => {
 
   const onResize = useCallback(
     () => {
-      console.log(masonryRef.current.offsetWidth)
       const newColumns = getColumns(masonryRef.current.offsetWidth);
       if(columns !== newColumns){
         setColumns(newColumns);

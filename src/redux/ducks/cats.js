@@ -4,7 +4,8 @@ export const actions = {
   FETCH_CATS_ERROR: 'FETCH_CATS_ERROR',
   CLEAR_CATS: 'CLEAR_DETAIL',
 };
-const initialState = {
+
+export const initialState = {
   isLoadingCats: false,
   cats: [],
   error: false

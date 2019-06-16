@@ -11,9 +11,8 @@ import {
 } from 'redux/ducks/cats';
 import { fecthCategories } from 'api';
 
-function* fetchCategoriesAsync({ payload }) {
+export function* fetchCategoriesAsync({ payload }) {
   try {
-    // @ts-ignore
     const result = yield call(fecthCategories, payload);
     yield put(fetchCategoriesSuccess(result));
     yield put(fetchCats(result[0].id))
@@ -22,7 +21,7 @@ function* fetchCategoriesAsync({ payload }) {
   }
 }
 
-function* changeCategory({ payload }) {
+export function* changeCategory({ payload }) {
   try {
     yield put(setActiveCategory(payload));
     yield put(clearCats());

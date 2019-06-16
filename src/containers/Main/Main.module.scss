@@ -2,9 +2,11 @@
 
 .main {
   margin-left: $menuWidth;
+  padding: 12px;
+  text-align: center;
 }
 
-.column{
+.column {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -12,21 +14,42 @@
 	flex-grow: 1;
 }
 
-.masonry{
+.masonry {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-content: stretch;
 	width: 100%;
   margin: auto;
-  padding: 12px;
 }
 
-.tile{
+.tile {
 	margin: 12px;
 	img {
     box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);
     width: 100%;
     border-radius: 4px;
 	}
+}
+
+.button {
+  background-color: $red;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 10px 72px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  margin: 40px auto;
+  height: 52px;
+  cursor: pointer;
+  transition: all 0.4s;
+  &:hover {
+    background-color: rgba($red, 0.9);
+  }
+  div {
+    margin-right: 20px;
+  }
 }

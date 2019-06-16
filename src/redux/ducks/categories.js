@@ -5,7 +5,8 @@ export const actions = {
   SET_ACTIVE_CATEGORY: 'SET_ACTIVE_CATEGORY',
   CHANGE_CATEGORY: 'CHANGE_CATEGORY'
 };
-const initialState = {
+
+export const initialState = {
   isLoadingCategories: false,
   categories: [],
   error: false,
@@ -46,7 +47,7 @@ const categoriesReducer = (state = initialState, action) => {
     }
     case actions.FETCH_CATEGORIES_SUCCESS: {
       const active = (Array.isArray(action.payload) && action.payload.length > 1)
-        && action.payload[0];
+        ? action.payload[0] : [];
       return {
         ...state,
         isLoadingCategories: false,

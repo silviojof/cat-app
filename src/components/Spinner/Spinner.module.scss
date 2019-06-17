@@ -30,6 +30,12 @@
       animation-delay: -0.15s;
     }
   }
+  &.colored {
+    div {
+      border: 3px solid $red;
+      border-color: $red transparent transparent transparent;
+    }
+  }
 }
 
 @keyframes spinner-animation {

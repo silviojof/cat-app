@@ -3,11 +3,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchCats } from 'redux/ducks/cats';
 import Spinner from 'components/Spinner';
-import Tile from './Tile';
-import Masonry from './Masonry';
+import Tile from 'components/Tile';
+import Masonry from 'components/Masonry';
 import styles from './Main.module.scss';
 
 const Main =  ({ fetchCats, cats, isLoadingCats, active, error }) => {
+  if (isLoadingCats && cats.length === 0)
+  return (
+    <div className={styles.spinnerBox} data-testid="page-spinner">
+      <Spinner colored/>
+    </div>
+  )
   return (
     <section className={styles.main}>
       <Masonry breakPoints={[350, 500, 750]}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Main.module.scss';
+import styles from './Tile.module.scss';
 
 const Tile = ({ src }) => {
   return (

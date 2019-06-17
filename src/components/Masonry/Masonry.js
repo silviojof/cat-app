@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Main.module.scss';
+import styles from './Masonry.module.scss';
 
 const Masonry = ({ breakPoints, children }) => {
   const masonryRef = useRef(null);

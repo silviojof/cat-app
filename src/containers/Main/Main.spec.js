@@ -5,6 +5,27 @@ import { initialState as categoriesInitialState } from 'redux/ducks/categories';
 import { renderWithProvider, mockStore } from 'testUtils';
 import Main from './Main';
 
+it('displays loader', () => {
+  const initialStateStore = mockStore({
+    cats: {
+      ...initialState,
+      cats: [],
+      isLoadingCats: true,
+    },
+    categories: {
+      ...categoriesInitialState,
+    }
+  });
+  const { queryByTestId } = renderWithProvider({
+    store: initialStateStore,
+    component: (
+      <Main />
+    )
+  });
+  const pageSpinner = queryByTestId('page-spinner');
+  expect(pageSpinner).toBeInTheDocument()
+});
+
 it('displays three cats', () => {
   const initialStateStore = mockStore({
     cats: {
